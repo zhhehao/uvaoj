@@ -1,6 +1,0 @@
-this is test for git.
-add some conents.
-GOod dsfalfsd a.
-Git has a mutable index called stage.
-dsfalfsdd
-dsfalfsd
