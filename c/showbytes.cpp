@@ -25,12 +25,24 @@ void test_show_bytes(int val) {
 	float fval = (float)ival;
 	int *pval = &ival;
 	show_int(ival);
-	show_float(ival);
+	show_float(fval);
 	show_pointer(pval);
+}
+
+void test_show_bytes_2() {
+	int val = 0x87654321;
+	byte_pointer valp = (byte_pointer) &val;
+	show_bytes(valp, 1);
+	show_bytes(valp, 2);
+	show_bytes(valp, 3);
+	show_bytes(valp, 4);
 }
 
 int main() {
 	freopen("data.out", "w", stdout);
-	test_show_bytes(12345);
+	// test_show_bytes(3510593);
+	// test_show_bytes_2();
+	show_int(3510593);
+	show_float(3510593.0);
 	return 0;
 }
