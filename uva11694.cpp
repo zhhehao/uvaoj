@@ -38,12 +38,46 @@ bool chkdot(int x, int y) {
 	else return false;
 }
 
+bool cycle4(int x, int y) {
+	if (cell[x][y-1] != '/') return false;
+	if (cell[x-1][y] != '/') return false;
+	if (cell[x-2][y-3] != '/') return false;
+	if (cell[x-3][y-2] != '/') return false;
+	if (cell[x][y-2] != '\\') return false;
+	if (cell[x-1][y-3] != '\\') return false;
+	if (cell[x-2][y] != '\\') return false;
+	if (cell[x-3][y-1] != '\\') return false;
+	return true;
+}
+
+bool cycle6(int x, int y) {
+	if (cell[x][y-2] != '/') return false;
+	if (cell[x-1][y-1] != '/') return false;
+	if (cell[x-2][y] != '/') return false;
+	if (cell[x-3][y-5] != '/') return false;
+	if (cell[x-4][y-4] != '/') return false;
+	if (cell[x-5][y-3] != '/') return false;
+	if (cell[x][y-3] != '\\') return false;
+	if (cell[x-1][y-4] != '\\') return false;
+	if (cell[x-2][y-5] != '\\') return false;
+	if (cell[x-3][y] != '\\') return false;
+	if (cell[x-4][y-1] != '\\') return false;
+	if (cell[x-5][y-2] != '\\') return false;
+	return true;
+}
+
 bool cycle(int x, int y) {
 	if (x == 0 || y == 0) return false;
 	if (cell[x][y] != '/') return false;
 	if (cell[x][y-1] != '\\') return false;
 	if (cell[x-1][y-1] != '/') return false;
 	if (cell[x-1][y] != '\\') return false;
+	if (x >= 3 && y >= 3) {
+		if (cycle4(x, y)) return true;
+	}
+	if (x >= 5 && y >= 5) {
+		if (cycle6(x, y)) return true;
+	}
 	return true;
 }
 
