@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <cstring>
 
 typedef unsigned char *byte_pointer;
 
@@ -40,9 +41,11 @@ void test_show_bytes_2() {
 
 int main() {
 	freopen("data.out", "w", stdout);
-	// test_show_bytes(3510593);
+	// test_show_bytes("12345");
 	// test_show_bytes_2();
-	show_int(3510593);
-	show_float(3510593.0);
+	// show_int(3510593);
+	// show_float(3510593.0);
+	const char *s = "12345";
+	show_bytes((byte_pointer)s, strlen(s));
 	return 0;
 }
