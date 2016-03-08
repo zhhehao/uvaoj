@@ -41,7 +41,7 @@ void match() {
 
 int main() {
 	for (;;) {
-		fgets(buf1, 100, stdin); 
+		fgets(buf1, 100, stdin);
 		if (buf1[0] == '#') break;
 		fgets(buf2, 100, stdin);
 		vp.clear();
