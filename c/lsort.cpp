@@ -5,13 +5,13 @@ int a[100], t[100];
 
 void init() {
 	srand(time(NULL));
-	printf("Before sort:\n");
+	// printf("Before sort:\n");
 	for (int i = 0; i < 100; i++) {
 		a[i] = rand();
 		if (a[i] > 1000) a[i] %= 1000;
-		printf("%d ", a[i]);
+		// printf("%d ", a[i]);
 	}
-	printf("\n");
+	// printf("\n");
 }
 
 void quicksort(int* arr, int left, int right) { // quick sort
@@ -53,10 +53,22 @@ void pr() {
 	printf("\n");
 }
 
+int bsearch(int* arr, int x, int y, int val) {
+	int m;
+	while (x < y) {
+		m = x + (y-x) / 2;
+		if (arr[m] == val) return m;
+		else if (arr[m] > val) y = m;
+		else x = m + 1;
+	}
+	return -1;
+}
+
 int main() {
 	init();
-	// quicksort(a, 0, 99);
-	mergesort(a, 0, 100, t);
+	quicksort(a, 0, 99);
+	// mergesort(a, 0, 100, t);
 	pr();
+		printf("Search 500 and return: %d\n", bsearch(a, 0, 100, 500));
 	return 0;
 }
