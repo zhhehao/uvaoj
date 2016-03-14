@@ -64,11 +64,33 @@ int bsearch(int* arr, int x, int y, int val) {
 	return -1;
 }
 
+int lower_bound(int* arr, int x, int y, int val) {
+	int m;
+	while (x < y) {
+		m = x + (y-x)/2;
+		if (arr[m] >= val) y = m;
+		else x = m + 1;
+	}
+	return x;
+}
+
+int upper_bound(int* arr, int x, int y, int val) {
+	int m;
+	while (x < y) {
+		m = x + (y-x)/2;
+		if (arr[m] <= val) x = m + 1;
+		else y = m;
+	}
+	return x;
+}
+
 int main() {
 	init();
 	quicksort(a, 0, 99);
 	// mergesort(a, 0, 100, t);
 	pr();
-		printf("Search 500 and return: %d\n", bsearch(a, 0, 100, 500));
+	printf("Search 500 and return: %d\n", bsearch(a, 0, 100, 500));
+	printf("lower_bound of 500: %d\n", lower_bound(a, 0, 100, 500));
+	printf("upper_bound of 500: %d\n", upper_bound(a, 0, 100, 500));
 	return 0;
 }
